@@ -1,0 +1,16 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: Says hello
+Resources:
+  HelloFunction:
+    Properties:
+      CodeUri: s3://vconcepcion-test/8e69993c71301a15d4fac7aaad06b9ed
+      Events:
+        RootHandler:
+          Properties:
+            Method: GET
+            Path: /
+          Type: Api
+      Handler: main
+      Runtime: go1.x
+    Type: AWS::Serverless::Function
+Transform: AWS::Serverless-2016-10-31

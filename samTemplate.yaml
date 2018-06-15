@@ -11,6 +11,6 @@ Resources:
         RootHandler:
           Type: Api
           Properties:
-            Path: '/'
+            Path: /
             Method: GET
 
