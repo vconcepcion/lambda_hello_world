@@ -13,4 +13,6 @@ Resources:
           Properties:
             Path: /
             Method: GET
-
+      AutoPublishAlias: live
+      DeploymentPreference:
+        Type: AllAtOnce
