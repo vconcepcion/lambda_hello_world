@@ -43,5 +43,5 @@ artifacts:
   type: zip
   files:
     - template.yaml
-    - packaged.yml
+    - packaged.yaml
 
