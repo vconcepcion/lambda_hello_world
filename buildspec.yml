@@ -42,6 +42,6 @@ phases:
 artifacts:
   type: zip
   files:
-	- template.yaml
-  - packaged.yml
+    - template.yaml
+    - packaged.yml
 
