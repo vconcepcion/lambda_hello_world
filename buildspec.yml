@@ -2,10 +2,10 @@ version: 0.1
 phases:
   install:
     commands:
-      - aws cloudformation package --template-file samTemplate.yaml --s3-bucket vconcepcion-test --output-template-file outputSamTemplate.yaml
+      - aws cloudformation package --template-file template.yaml --s3-bucket vconcepcion-test --output-template-file packaged.yaml
 artifacts:
   type: zip
   files:
-    - samTemplate.yaml
-    - outputSamTemplate.yaml
+    - template.yaml
+    - packaged.yaml
 
