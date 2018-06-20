@@ -16,7 +16,8 @@ Resources:
     Properties:
       Handler: main
       Runtime: go1.x
-      DeploymentPreference: Canary10Percent5Minutes
+      DeploymentPreference:
+        Type: Canary10Percent5Minutes
       Tracing: Active # https://docs.aws.amazon.com/lambda/latest/dg/lambda-x-ray.html
       Events:
         CatchAll:
