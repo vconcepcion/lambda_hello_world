@@ -17,16 +17,16 @@ phases:
       # Print all environment variables (handy for AWS CodeBuild logs)
       - env
       # Install golint
-      - go get -u github.com/golang/lint/golint
+      #- go get -u github.com/golang/lint/golint
 
   pre_build:
     commands:
       # Make sure we're in the project directory within our GOPATH
       - cd "/go/src/${PACKAGE}"
       # Fetch all dependencies
-      #- go get -t ./...
+      - go get -t ./...
       # Ensure that the code passes all lint tests
-      #- golint -set_exit_status
+      - golint -set_exit_status
       # Check for common Go problems with 'go vet'
       #- go vet .
       # Run all tests included with the application
@@ -35,7 +35,7 @@ phases:
   build:
     commands:
       # Build the go application
-      #- go build -o main ./hello-world
+      - go build -o hello-world hello-world/main.go
       # Package the application with AWS SAM
       - aws cloudformation package --template-file template.yaml --s3-bucket ${S3_BUCKET} --output-template-file packaged.yaml
 
