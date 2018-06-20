@@ -2,9 +2,9 @@ package main
 
 import (
 	"errors"
-//	"fmt"
-//	"io/ioutil"
-//	"net/http"
+	"fmt"
+	"io/ioutil"
+	"net/http"
 
 	"github.com/aws/aws-lambda-go/events"
 	"github.com/aws/aws-lambda-go/lambda"
@@ -22,26 +22,26 @@ var (
 )
 
 func handler(request events.APIGatewayProxyRequest) (events.APIGatewayProxyResponse, error) {
-	//resp, err := http.Get(DefaultHTTPGetAddress)
-	//if err != nil {
-	//	return events.APIGatewayProxyResponse{}, err
-	//}
+	resp, err := http.Get(DefaultHTTPGetAddress)
+	if err != nil {
+		return events.APIGatewayProxyResponse{}, err
+	}
 
-	//if resp.StatusCode != 200 {
-	//	return events.APIGatewayProxyResponse{}, ErrNon200Response
-	//}
+	if resp.StatusCode != 200 {
+		return events.APIGatewayProxyResponse{}, ErrNon200Response
+	}
 
-	//ip, err := ioutil.ReadAll(resp.Body)
-	//if err != nil {
-	//	return events.APIGatewayProxyResponse{}, err
-	//}
+	ip, err := ioutil.ReadAll(resp.Body)
+	if err != nil {
+		return events.APIGatewayProxyResponse{}, err
+	}
 
-	//if len(ip) == 0 {
-	//	return events.APIGatewayProxyResponse{}, ErrNoIP
-	//}
+	if len(ip) == 0 {
+		return events.APIGatewayProxyResponse{}, ErrNoIP
+	}
 
 	return events.APIGatewayProxyResponse{
-		Body:       "Hello World!!", //fmt.Sprintf("Hello, %v", string(ip)),
+		Body:       fmt.Sprintf("Hello, %v", string(ip)),
 		StatusCode: 200,
 	}, nil
 }
